@@ -1,1 +1,124 @@
-test
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Romeo & Juliet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fcf8f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .invitation-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border: 1px solid #e8ded5;
+        }
+        .couple {
+            font-size: 28px;
+            color: #8c6d48;
+            margin: 20px 0;
+            font-weight: normal;
+        }
+        .subtitle {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #777;
+        }
+        .guest-section {
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px dashed #d1c2b4;
+            border-bottom: 1px dashed #d1c2b4;
+        }
+        .guest-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .guest-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c2c2c;
+        }
+        .details {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #8c6d48;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #705436;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <p class="subtitle">The Wedding Of</p>
+        <h1 class="couple">Romeo & Juliet</h1>
+        
+        <div class="details">
+            <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+        </div>
+
+        <div class="guest-section">
+            <p class="guest-label">Nama Tamu Undangan:</p>
+            <div id="guest-name" class="guest-name">Memuat Nama...</div>
+        </div>
+
+        <div class="details">
+            <p><strong>Sabtu, 28 Oktober 2026</strong></p>
+            <p>Gedung Graha Manggala, Jakarta</p>
+        </div>
+
+        <a href="#rsvp" class="btn">Konfirmasi Kehadiran</a>
+    </div>
+
+    <script>
+        // Mengambil parameter 'to' atau 'nama' dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let guestName = urlParams.get('to') || urlParams.get('nama');
+
+        // Jika parameter tidak ada di URL, gunakan nama default
+        if (!guestName) {
+            guestName = "Tamu Undangan";
+        } else {
+            // Mengganti karakter '+' atau '%20' dengan spasi bersih
+            guestName = decodeURIComponent(guestName.replace(/\+/g, ' '));
+        }
+
+        // Menampilkan nama tamu ke dalam elemen HTML
+        document.getElementById('guest-name').innerText = guestName;
+    </script>
+
+</body>
+</html>
