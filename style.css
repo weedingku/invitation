@@ -1,0 +1,1409 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   TEMA WARNA & GAYA FONT (DESIGN SYSTEM)
+   ========================================== */
+
+:root {
+  /* Default Theme: Midnight Gold (Hitam & Emas Mewah) */
+  --bg-dark: #0a0a0a;
+  --bg-wrapper: #111111;
+  --bg-card: #141414;
+  --bg-input: #1a1a1a;
+  --bg-nav: #121212;
+  --cover-gradient: radial-gradient(circle, #1a1a1a 0%, #0a0a0a 100%);
+  --gold-primary: #d4af37;
+  --gold-light: #f3e5ab;
+  --btn-gradient: linear-gradient(135deg, #d4af37, #aa820a);
+  --btn-text: #000000;
+  --text-white: #ffffff;
+  --text-muted: #b0b0b0;
+  --border-gold: rgba(212, 175, 55, 0.3);
+  --shadow-gold: rgba(212, 175, 55, 0.25);
+  --quote-bg: rgba(255, 255, 255, 0.02);
+  --quote-text: #e0e0e0;
+  --floating-bg: rgba(20, 20, 20, 0.85);
+  --section-border: rgba(255, 255, 255, 0.05);
+  --badge-bg: rgba(255, 255, 255, 0.03);
+
+  /* Default Font Pairing: Romantic Sacramento & Garamond */
+  --font-script: 'Sacramento', cursive;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --script-size-multiplier: 1;
+}
+
+/* Theme 1: Emerald Sage (Nuansa Alam / Zamrud & Sage) */
+[data-theme="emerald"] {
+  --bg-dark: #06130d;
+  --bg-wrapper: #0a1c14;
+  --bg-card: #10281d;
+  --bg-input: #0e2319;
+  --bg-nav: #0a1c14;
+  --cover-gradient: radial-gradient(circle, #123324 0%, #06130d 100%);
+  --gold-primary: #52b788;
+  --gold-light: #b7e4c7;
+  --btn-gradient: linear-gradient(135deg, #52b788, #2d6a4f);
+  --btn-text: #ffffff;
+  --text-white: #f4fbf7;
+  --text-muted: #9cb5a8;
+  --border-gold: rgba(82, 183, 136, 0.35);
+  --shadow-gold: rgba(82, 183, 136, 0.25);
+  --quote-bg: rgba(82, 183, 136, 0.06);
+  --quote-text: #e2f1e9;
+  --floating-bg: rgba(10, 28, 20, 0.88);
+  --section-border: rgba(82, 183, 136, 0.12);
+  --badge-bg: rgba(82, 183, 136, 0.05);
+}
+
+/* Theme 2: Rose Burgundy (Merah Marun & Rose Gold) */
+[data-theme="burgundy"] {
+  --bg-dark: #130408;
+  --bg-wrapper: #1e080e;
+  --bg-card: #2a0c14;
+  --bg-input: #240a11;
+  --bg-nav: #1e080e;
+  --cover-gradient: radial-gradient(circle, #330f19 0%, #130408 100%);
+  --gold-primary: #e5989b;
+  --gold-light: #ffcad4;
+  --btn-gradient: linear-gradient(135deg, #e5989b, #b56576);
+  --btn-text: #ffffff;
+  --text-white: #fff5f6;
+  --text-muted: #bfa2a8;
+  --border-gold: rgba(229, 152, 155, 0.35);
+  --shadow-gold: rgba(229, 152, 155, 0.25);
+  --quote-bg: rgba(229, 152, 155, 0.06);
+  --quote-text: #fae1e4;
+  --floating-bg: rgba(30, 8, 14, 0.88);
+  --section-border: rgba(229, 152, 155, 0.12);
+  --badge-bg: rgba(229, 152, 155, 0.05);
+}
+
+/* Theme 3: Royal Sapphire (Biru Navy & Emas Elegan) */
+[data-theme="sapphire"] {
+  --bg-dark: #050a14;
+  --bg-wrapper: #091326;
+  --bg-card: #0e1d3a;
+  --bg-input: #0c1932;
+  --bg-nav: #091326;
+  --cover-gradient: radial-gradient(circle, #112347 0%, #050a14 100%);
+  --gold-primary: #e6c587;
+  --gold-light: #fae5be;
+  --btn-gradient: linear-gradient(135deg, #e6c587, #ad8b46);
+  --btn-text: #050a14;
+  --text-white: #f5f8ff;
+  --text-muted: #91a1bf;
+  --border-gold: rgba(230, 197, 135, 0.35);
+  --shadow-gold: rgba(230, 197, 135, 0.25);
+  --quote-bg: rgba(230, 197, 135, 0.06);
+  --quote-text: #e7edfc;
+  --floating-bg: rgba(9, 19, 38, 0.88);
+  --section-border: rgba(230, 197, 135, 0.12);
+  --badge-bg: rgba(230, 197, 135, 0.05);
+}
+
+/* Theme 4: Ivory Pearl (Mode Terang - Putih Mutiara & Emas) */
+[data-theme="ivory"] {
+  --bg-dark: #eeebe3;
+  --bg-wrapper: #faf7f2;
+  --bg-card: #ffffff;
+  --bg-input: #f3eee6;
+  --bg-nav: #ffffff;
+  --cover-gradient: radial-gradient(circle, #ffffff 0%, #f0eae0 100%);
+  --gold-primary: #967226;
+  --gold-light: #b88d37;
+  --btn-gradient: linear-gradient(135deg, #b88d37, #8a651d);
+  --btn-text: #ffffff;
+  --text-white: #22201e;
+  --text-muted: #6c655d;
+  --border-gold: rgba(150, 114, 38, 0.28);
+  --shadow-gold: rgba(150, 114, 38, 0.2);
+  --quote-bg: rgba(150, 114, 38, 0.05);
+  --quote-text: #3d3935;
+  --floating-bg: rgba(250, 247, 242, 0.92);
+  --section-border: rgba(0, 0, 0, 0.07);
+  --badge-bg: rgba(0, 0, 0, 0.03);
+}
+
+/* Font Pairing 2: Great Vibes & Playfair Display */
+[data-font="great-vibes"] {
+  --font-script: 'Great Vibes', cursive;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --script-size-multiplier: 0.95;
+}
+
+/* Font Pairing 3: Alex Brush & Cinzel */
+[data-font="alex-brush"] {
+  --font-script: 'Alex Brush', cursive;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Poppins', sans-serif;
+  --script-size-multiplier: 0.95;
+}
+
+/* Font Pairing 4: Pinyon Script & Merriweather */
+[data-font="pinyon"] {
+  --font-script: 'Pinyon Script', cursive;
+  --font-heading: 'Merriweather', serif;
+  --font-body: 'Lora', serif;
+  --script-size-multiplier: 1.05;
+}
+
+/* Transisi halus saat ganti tema */
+body, 
+.wrapper, 
+.cover-section, 
+.event-card, 
+.quran-quote-card, 
+.bottom-nav, 
+.gold-form input, 
+.gold-form textarea, 
+.time-item, 
+.guest-spec-box, 
+.btn-gold-main, 
+.btn-gold-secondary, 
+.music-floating-btn, 
+.theme-floating-btn {
+  transition: background 0.35s ease, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--bg-wrapper);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.7);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* COVER SECTION */
+.cover-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--cover-gradient);
+}
+
+.sub-title {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 20px;
+}
+
+/* FOTO UTAMA PASANGAN DI COVER */
+.main-hero-avatar {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  padding: 4px;
+  box-shadow: 0 0 20px var(--shadow-gold);
+}
+
+.main-hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 50%;
+}
+
+.couple-name-title, 
+.couple-name {
+  font-family: var(--font-script);
+  font-size: calc(3.2rem * var(--script-size-multiplier, 1));
+  font-weight: 400;
+  color: var(--gold-primary);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.event-date-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+/* KOTAK NAMA TAMU UNDANGAN */
+.guest-spec-box {
+  margin: 10px auto 25px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--badge-bg);
+  border: 1px dashed var(--border-gold);
+  display: inline-block;
+  max-width: 90%;
+}
+
+.guest-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.guest-name {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+}
+
+/* COUNTDOWN */
+.countdown-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.countdown-title span {
+  height: 1px;
+  width: 35px;
+  background: var(--gold-primary);
+}
+
+.countdown-title p {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--gold-primary);
+}
+
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.time-item {
+  background: var(--badge-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  padding: 10px 8px;
+  min-width: 60px;
+}
+
+.time-item span {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1;
+}
+
+.time-item small {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* BUTTONS */
+.btn-gold-main {
+  display: inline-block;
+  width: 100%;
+  background: var(--btn-gradient);
+  color: var(--btn-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 14px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--shadow-gold);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-gold-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-gold);
+}
+
+.btn-gold-secondary {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+.btn-gold-secondary:hover {
+  background: var(--quote-bg);
+  border-color: var(--gold-primary);
+  transform: translateY(-2px);
+}
+
+/* MAIN CONTENT */
+.hidden {
+  display: none !important;
+}
+
+.main-content {
+  padding-bottom: 70px;
+}
+
+.section {
+  padding: 40px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--section-border);
+}
+
+/* FOTO MEMPELAI PRIA & WANITA */
+.circle-avatar {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  overflow: hidden;
+  box-shadow: 0 0 15px var(--shadow-gold);
+}
+
+.circle-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.parents-info {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.gold-ampersand {
+  font-family: var(--font-script);
+  font-size: calc(2.8rem * var(--script-size-multiplier, 1));
+  color: var(--gold-primary);
+  margin: 15px 0;
+}
+
+/* EVENT CARDS */
+.script-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.invitation-text {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.event-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 22px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-type {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
+}
+
+.big-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* TANGGAL BERGAYA ANGKA */
+.day-number {
+  font-family: var(--font-body);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  line-height: 1;
+}
+
+.month-year {
+  text-align: left;
+}
+
+.month-year strong {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--text-white);
+}
+
+.month-year small {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.event-time {
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.event-place {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* MAPS */
+.map-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  margin-bottom: 15px;
+}
+
+/* KUTIPAN AYAT */
+.quran-quote-card {
+  background: var(--quote-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 25px;
+}
+
+.quran-text {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--quote-text);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.quran-surah {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+}
+
+/* FORM UCAPAN */
+.gold-form {
+  text-align: left;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--gold-primary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.gold-form input[type="text"] {
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding: 8px 12px !important;
+  background: var(--bg-input) !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: 6px !important;
+  color: var(--text-white) !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.85rem !important;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.gold-form input[type="text"]:focus,
+.gold-form textarea:focus {
+  border-color: var(--gold-primary) !important;
+}
+
+.gold-form textarea {
+  width: 100% !important;
+  height: 90px !important;
+  min-height: 90px !important;
+  max-height: 120px !important;
+  padding: 8px 12px !important;
+  background: var(--bg-input) !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: 6px !important;
+  color: var(--text-white) !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.85rem !important;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.btn-compact {
+  width: 100%;
+  padding: 10px 15px !important;
+  font-size: 0.8rem !important;
+  margin-top: 5px;
+}
+
+/* BOTTOM NAVBAR */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-nav);
+  border-top: 1px solid var(--border-gold);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  z-index: 999;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item:hover,
+.nav-item:active {
+  color: var(--gold-primary);
+  transform: scale(1.15);
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* FLOATING BUTTONS */
+.music-floating-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--floating-bg);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.music-floating-btn:hover {
+  transform: scale(1.08);
+}
+
+.music-floating-btn.rotating {
+  animation: spin 3s linear infinite;
+}
+
+.theme-floating-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--floating-bg);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-floating-btn:hover {
+  transform: scale(1.08);
+}
+
+.theme-floating-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===================================================
+   THEME & FONT SWITCHER MODAL & CONTROLS
+   =================================================== */
+
+/* Modal Backdrop */
+.theme-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.theme-modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Modal Content (Bottom Sheet Style) */
+.theme-modal-content {
+  background: var(--bg-wrapper);
+  border: 1px solid var(--border-gold);
+  border-radius: 24px 24px 0 0;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.theme-modal-backdrop.open .theme-modal-content {
+  transform: translateY(0);
+}
+
+/* Modal Header */
+.theme-modal-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--section-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-modal-title i {
+  color: var(--gold-primary);
+  font-size: 1.25rem;
+}
+
+.theme-modal-title h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.theme-modal-title small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.theme-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.theme-modal-close:hover {
+  color: var(--text-white);
+  background: var(--badge-bg);
+}
+
+/* Modal Body (Scrollable) */
+.theme-modal-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.theme-modal-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.theme-modal-body::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 10px;
+}
+
+.theme-section {
+  margin-bottom: 22px;
+}
+
+.theme-section-title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Grid Tema Warna */
+.theme-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.theme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-primary);
+}
+
+.theme-card.active {
+  border-color: var(--gold-primary);
+  background: var(--quote-bg);
+  box-shadow: 0 0 14px var(--shadow-gold);
+}
+
+.theme-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-dots-preview {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.theme-card-check {
+  font-size: 0.95rem;
+  color: var(--gold-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(0.6);
+}
+
+.theme-card.active .theme-card-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.theme-card-name {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.theme-card-tag {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* List Gaya Font */
+.font-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.font-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.font-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-primary);
+}
+
+.font-card.active {
+  border-color: var(--gold-primary);
+  background: var(--quote-bg);
+  box-shadow: 0 0 14px var(--shadow-gold);
+}
+
+.font-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.font-card-name {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.font-card-tag {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+.font-card-check {
+  font-size: 0.95rem;
+  color: var(--gold-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(0.6);
+}
+
+.font-card.active .font-card-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.font-preview-box {
+  background: var(--badge-bg);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px dashed var(--border-gold);
+  text-align: center;
+}
+
+.font-preview-couple {
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.font-preview-title {
+  font-size: 0.95rem;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.font-card-details {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Modal Footer */
+.theme-modal-footer {
+  padding: 14px 20px 18px;
+  border-top: 1px solid var(--section-border);
+  display: flex;
+  gap: 10px;
+}
+
+.btn-theme-reset {
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--text-muted);
+  border-radius: 25px;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-reset:hover {
+  color: var(--text-white);
+  border-color: var(--gold-primary);
+}
+
+.btn-modal-done {
+  flex: 1;
+  padding: 10px 16px !important;
+  font-size: 0.75rem !important;
+  margin: 0 !important;
+}
+
+
+/* ===================================================
+   THEME & FONT SWITCHER MODAL & CONTROLS
+   =================================================== */
+
+/* Modal Backdrop */
+.theme-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.theme-modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Modal Content (Bottom Sheet Style) */
+.theme-modal-content {
+  background: var(--bg-wrapper);
+  border: 1px solid var(--border-gold);
+  border-radius: 24px 24px 0 0;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.theme-modal-backdrop.open .theme-modal-content {
+  transform: translateY(0);
+}
+
+/* Modal Header */
+.theme-modal-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--section-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-modal-title i {
+  color: var(--gold-primary);
+  font-size: 1.25rem;
+}
+
+.theme-modal-title h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.theme-modal-title small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.theme-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.theme-modal-close:hover {
+  color: var(--text-white);
+  background: var(--badge-bg);
+}
+
+/* Modal Body (Scrollable) */
+.theme-modal-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.theme-modal-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.theme-modal-body::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 10px;
+}
+
+.theme-section {
+  margin-bottom: 22px;
+}
+
+.theme-section-title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Grid Tema Warna */
+.theme-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.theme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-primary);
+}
+
+.theme-card.active {
+  border-color: var(--gold-primary);
+  background: var(--quote-bg);
+  box-shadow: 0 0 14px var(--shadow-gold);
+}
+
+.theme-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-dots-preview {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.theme-card-check {
+  font-size: 0.95rem;
+  color: var(--gold-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(0.6);
+}
+
+.theme-card.active .theme-card-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.theme-card-name {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.theme-card-tag {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* List Gaya Font */
+.font-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.font-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.font-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-primary);
+}
+
+.font-card.active {
+  border-color: var(--gold-primary);
+  background: var(--quote-bg);
+  box-shadow: 0 0 14px var(--shadow-gold);
+}
+
+.font-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.font-card-name {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.font-card-tag {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-left: 6px;
+  font-weight: 400;
+}
+
+.font-card-check {
+  font-size: 0.95rem;
+  color: var(--gold-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: scale(0.6);
+}
+
+.font-card.active .font-card-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.font-preview-box {
+  background: var(--badge-bg);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px dashed var(--border-gold);
+  text-align: center;
+}
+
+.font-preview-couple {
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.font-preview-title {
+  font-size: 0.95rem;
+  color: var(--text-white);
+  line-height: 1.2;
+}
+
+.font-card-details {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Modal Footer */
+.theme-modal-footer {
+  padding: 14px 20px 18px;
+  border-top: 1px solid var(--section-border);
+  display: flex;
+  gap: 10px;
+}
+
+.btn-theme-reset {
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--text-muted);
+  border-radius: 25px;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-reset:hover {
+  color: var(--text-white);
+  border-color: var(--gold-primary);
+}
+
+.btn-modal-done {
+  flex: 1;
+  padding: 10px 16px !important;
+  font-size: 0.75rem !important;
+  margin: 0 !important;
+}
