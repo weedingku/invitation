@@ -161,6 +161,38 @@
         </a>
       </section>
 
+      <!-- SEKSI INFORMASI REKENING & WEDDING GIFT (CUSTOMIZABLE) -->
+      <section id="gift" class="section gift-section">
+        <p class="sub-title">TANDA KASIH</p>
+        <h2 class="script-title">Wedding Gift</h2>
+        <p class="gift-desc">
+          Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat mengirimkan hadiah secara cashless melalui rekening atau dompet digital berikut:
+        </p>
+
+        <!-- Daftar Kartu Rekening (Direncanakan Dinamis & Bisa Dicustom) -->
+        <div id="rekeningCardsContainer" class="rekening-cards-container">
+          <!-- Rendered via JavaScript -->
+        </div>
+
+        <!-- Opsi Kirim Kado Fisik / Alamat -->
+        <div class="physical-gift-wrapper">
+          <button type="button" class="btn-toggle-physical" onclick="togglePhysicalGift()">
+            <span><i class="fa-solid fa-box-open"></i> Kirim Kado Fisik (Alamat)</span>
+            <i id="physicalGiftArrow" class="fa-solid fa-chevron-down toggle-arrow"></i>
+          </button>
+          <div id="physicalGiftContent" class="physical-gift-card hidden">
+            <!-- Rendered via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Tombol Pengaturan / Kustomisasi Rekening -->
+        <div class="manage-rekening-wrapper">
+          <button type="button" class="btn-manage-gift" onclick="openRekeningModal()" title="Ubah atau tambah nomor rekening & alamat kado">
+            <i class="fa-solid fa-gear"></i> Kustom Informasi Rekening & Kado
+          </button>
+        </div>
+      </section>
+
       <!-- SEKSI KUTIPAN AYAT & UCAPAN DOA -->
       <section id="rsvp" class="section rsvp-section">
         <div class="quran-quote-card">
@@ -198,6 +230,7 @@
         <a href="#couple" class="nav-item" title="Mempelai"><i class="fa-solid fa-heart"></i></a>
         <a href="#event" class="nav-item" title="Jadwal Acara"><i class="fa-solid fa-calendar-days"></i></a>
         <a href="#maps" class="nav-item" title="Lokasi Acara"><i class="fa-solid fa-map-location-dot"></i></a>
+        <a href="#gift" class="nav-item" title="Kado & Rekening"><i class="fa-solid fa-gift"></i></a>
         <a href="#rsvp" class="nav-item" title="Ucapan & Doa"><i class="fa-solid fa-envelope"></i></a>
         <button type="button" class="nav-item nav-btn" onclick="openThemeModal()" title="Ganti Tema & Font">
           <i class="fa-solid fa-palette"></i>
@@ -411,6 +444,106 @@
         </button>
       </div>
     </div>
+  </div>
+
+  <!-- MODAL KUSTOMISASI REKENING & KADO -->
+  <div id="rekeningModal" class="theme-modal-backdrop" onclick="handleRekeningBackdropClick(event)">
+    <div class="theme-modal-content rekening-modal-content" onclick="event.stopPropagation()">
+      <!-- Modal Header -->
+      <div class="theme-modal-header">
+        <div class="theme-modal-title">
+          <i class="fa-solid fa-wallet"></i>
+          <div>
+            <h3>Kustom Informasi Rekening</h3>
+            <small>Atur nomor rekening, e-wallet, dan alamat kado fisik</small>
+          </div>
+        </div>
+        <button type="button" class="theme-modal-close" onclick="closeRekeningModal()" aria-label="Tutup Pengaturan">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Form Edit Rekening & Kado) -->
+      <div class="theme-modal-body">
+        <!-- SEKSI 1: DAFTAR REKENING / E-WALLET -->
+        <div class="theme-section">
+          <div class="modal-section-header">
+            <div class="theme-section-title" style="margin-bottom: 0;">
+              <i class="fa-solid fa-credit-card"></i>
+              <span>Daftar Rekening / E-Wallet</span>
+            </div>
+            <button type="button" class="btn-add-rekening" onclick="addNewRekeningRow()">
+              <i class="fa-solid fa-plus"></i> Tambah
+            </button>
+          </div>
+
+          <div id="rekeningEditorList" class="rekening-editor-list">
+            <!-- Form input per rekening dimuat secara dinamis oleh JS -->
+          </div>
+        </div>
+
+        <!-- SEKSI 2: ALAMAT KADO FISIK -->
+        <div class="theme-section">
+          <div class="theme-section-title">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Alamat Pengiriman Kado Fisik</span>
+          </div>
+          <div class="rekening-form-card">
+            <div class="rekening-form-group">
+              <label for="editKadoPenerima">Nama Penerima</label>
+              <input type="text" id="editKadoPenerima" placeholder="Contoh: Gina & Deni">
+            </div>
+            <div class="rekening-form-group">
+              <label for="editKadoTelepon">Nomor Telepon / WhatsApp</label>
+              <input type="text" id="editKadoTelepon" placeholder="Contoh: 081234567890">
+            </div>
+            <div class="rekening-form-group">
+              <label for="editKadoAlamat">Alamat Lengkap</label>
+              <textarea id="editKadoAlamat" rows="3" placeholder="Jl. Duren Tiga No. ..., Jakarta Selatan"></textarea>
+            </div>
+            <div class="rekening-form-group">
+              <label for="editKadoCatatan">Catatan / Petunjuk Pengiriman (Opsional)</label>
+              <input type="text" id="editKadoCatatan" placeholder="Contoh: Titipkan di satpam bila penerima sedang keluar">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="theme-modal-footer">
+        <button type="button" class="btn-theme-reset" onclick="resetRekeningToDefault()">
+          <i class="fa-solid fa-rotate-left"></i> Reset Default
+        </button>
+        <button type="button" class="btn-gold-main btn-modal-done" onclick="saveRekeningCustomization()">
+          <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL LIHAT QRIS / QR CODE -->
+  <div id="qrisModal" class="theme-modal-backdrop" onclick="closeQrisModal()">
+    <div class="qris-modal-content" onclick="event.stopPropagation()">
+      <div class="qris-modal-header">
+        <h4 id="qrisModalTitle">QRIS Pembayaran</h4>
+        <button type="button" class="theme-modal-close" onclick="closeQrisModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="qris-modal-body">
+        <div class="qris-image-frame">
+          <img id="qrisModalImage" src="" alt="QRIS Code">
+        </div>
+        <p id="qrisModalName" class="qris-modal-name"></p>
+        <small class="qris-modal-hint">Pindai kode QR melalui aplikasi m-Banking atau e-Wallet pilihan Anda</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFIKASI SALIN / SIMPAN -->
+  <div id="copyToast" class="copy-toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="copyToastText">Nomor rekening berhasil disalin!</span>
   </div>
 
   <!-- AUDIO PEMUTAR MUSIK -->
